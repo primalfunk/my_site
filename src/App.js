@@ -8,26 +8,23 @@ import left from './leftarrow.png'
 class App extends Component {
   state = { shown: 1, dir: '' }
 
-  handleRight(i) {
+  handleSlide(i, dir) {
     let new_shown
     const shown = i
-    if(shown === 1 || shown === 2) {
-      new_shown = shown + 1
+    if(dir == 'right') {
+      if(shown === 1 || shown === 2) {
+        new_shown = shown + 1
+      } else {
+        new_shown = 1
+      }
     } else {
-      new_shown = 1
+      if (shown === 2 || shown === 3) {
+        new_shown = shown - 1
+      } else {
+        new_shown = 3
+      }
     }
-    this.setState({ shown: new_shown, dir: 'right' })
-  }
-
-  handleLeft(i) {
-    let new_shown
-    const shown = i
-    if (shown === 2 || shown === 3) {
-      new_shown = shown - 1
-    } else {
-      new_shown = 3
-    }
-    this.setState({ shown: new_shown, dir: 'left' })
+    this.setState({ shown: new_shown, dir: dir })
   }
 
   render() {
@@ -39,16 +36,18 @@ class App extends Component {
             <Grid.Row textAlign="center">
               <Grid.Column style={{ "display": "flex", "justifyContent": "center", "alignItems": "center" }}>
                 <Button
-                  onClick={() => this.handleLeft(shown)}>
+                  onClick={() => this.handleSlide(shown, 'left')}>
                   <Image src={left} size="mini" />
                 </Button>
               </Grid.Column>
               <Grid.Column style={{ "display": "flex", "justifyContent": "center", "alignItems": "center" }}>
-                <Display shown={shown} dir={dir} /> 
+                
+                <Display shown={shown} dir={dir} />
+
               </Grid.Column>
               <Grid.Column style={{ "display": "flex", "justifyContent": "center", "alignItems": "center" }}>
                 <Button
-                  onClick={() => this.handleRight(shown)}>
+                  onClick={() => this.handleSlide(shown, 'right')}>
                   <Image src={right} size="mini" />
                 </Button>
               </Grid.Column>
@@ -68,4 +67,5 @@ const MyContainer = styled(Container)`
   justify-content: center;
   align-items: center;
 `
+
 export default App
