@@ -5,8 +5,11 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "react": "^16.4.1",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-animate-on-change": "^2.1.1",
     "react-animations": "^1.0.0",
+    "react-css-transition": "^0.7.4",
+    "react-css-transition-replace": "^3.0.3",
     "react-dom": "^16.4.1",
     "react-motion": "^0.5.2",
     "react-scripts": "1.1.4",
