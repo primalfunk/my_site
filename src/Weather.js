@@ -23,7 +23,7 @@ class Weather extends React.Component {
         <Grid columns={2}>
           <Grid.Column>
             <Segment raised style={{ "height": "30vh" }}>
-              <MyHeader>Get a 5-day weather forecast for one of these cities:</MyHeader>
+              <MyHeader>Using the metaweather.com API, get a 5-day weather forecast for one of these cities:</MyHeader>
               <ul>
                 <MyLi onClick={ () => this.handleClick(2459115) }>New York</MyLi>
                 <MyLi onClick={ () => this.handleClick(44418) }>London</MyLi>

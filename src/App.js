@@ -1,16 +1,25 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
+import { Divider, Container } from 'semantic-ui-react'
 import Display from './Display'
 import Navbar from './Navbar'
 
-class App extends Component {
+class App extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <div style={styles.background}>
         <Navbar />
+        <Divider hidden />
         <Display />
-      </Fragment>
+      </div>
     )
+  }
+}
+
+const styles = {
+  background: {
+    backgroundColor: "black",
+    minHeight: "100vh"
   }
 }
 

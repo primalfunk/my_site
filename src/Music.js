@@ -19,7 +19,7 @@ class Music extends React.Component {
     return (
       <MusicWrapper>
         <Segment>
-          <Header>Listen to a few of my piano compositions:</Header>
+          <Header>Listen to a few of my piano compositions (selection below will autoplay):</Header>
             <Divider hidden />
             <Dropdown placeholder="Select a song:" fluid selection options={ options } onChange={ this.handleChange } />
             <Divider hidden/>
@@ -46,7 +46,7 @@ const options = [
 ]
 
 const MusicWrapper = styled.div`
-  background-image: url(${back});
+  width: 60vw;
 `
 
 export default Music

@@ -6,6 +6,7 @@ import left from './leftarrow.png'
 import back from './webback.png'
 import Weather from './Weather'
 import Music from './Music'
+import Comics from './Comics'
 
 class Display extends React.Component {
   state = { shown: 1, dir: 'right', out: false }
@@ -53,13 +54,13 @@ class Display extends React.Component {
           </Grid.Row>
         </Grid>
         <Divider />
-        <Header as="h1" textAlign="center">Now showing: { shown === 1 ? "Weather" : shown === 2 ? "Music" : "Nothing" }</Header>
+        <Header style={{color: "gray"}}as="h1" textAlign="center">Now showing: { shown === 1 ? "Weather" : shown === 2 ? "Music" : "Comics" }</Header>
         <Divider />
         { shown === 1 ?
           <Weather /> :
           shown === 2 ?
           <Music /> :
-          null
+          <Comics />
         }
       </FlexContainer>
     )
