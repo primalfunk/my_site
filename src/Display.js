@@ -3,6 +3,9 @@ import { Container, Divider, Button, Grid, Image } from 'semantic-ui-react'
 import styled, { keyframes } from 'styled-components'
 import right from './rightarrow.png'
 import left from './leftarrow.png'
+import back from './webback.png'
+import FirstPage from './FirstPage'
+import SecondPage from './SecondPage'
 
 class Display extends React.Component {
   state = { shown: 1, dir: '', out: false }
@@ -16,15 +19,15 @@ class Display extends React.Component {
       (shown === 2 || shown === 3) ? new_shown = shown - 1 : new_shown = 3
     }
     this.setState({ out: true, dir: dir }, () =>
-      setTimeout(() => this.setState({ shown: new_shown, out: false }), 750)
+      setTimeout(() => this.setState({ shown: new_shown, out: false }), 900)
     )
   }
 
   render() {
     const { shown, dir, out } = this.state
     return(
-      <FlexContainer>
-        <Divider />
+    <FlexContainer>
+      <Divider />
         <Grid columns={3} padded>
           <Grid.Row textAlign="center">
             <Grid.Column style={{ "display": "flex", "justifyContent": "center", "alignItems": "center" }}>
@@ -35,10 +38,10 @@ class Display extends React.Component {
             <Grid.Column>
               { dir === 'right' ?
                 <AnimLeft out={out}>
-                  <Image src={require(`./medallion${shown}.png`)} />
+                  <Image src={require(`./medallion${shown}.png`)} onClick={() => this.handleClick(shown)} />
                 </AnimLeft> :
                 <AnimRight out={out}>
-                  <Image src={require(`./medallion${shown}.png`)} />
+                  <Image src={require(`./medallion${shown}.png`)} onClick={() => this.handleClick(shown)} />
                 </AnimRight>
               } 
             </Grid.Column>
@@ -49,13 +52,21 @@ class Display extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        <Divider />
+        { shown === 1 ?
+          <FirstPage /> :
+          shown === 2 ?
+          <SecondPage /> :
+          null
+        }
       </FlexContainer>
     )
   }
 }
 
 const FlexContainer = styled(Container)`
-  height: 50vh;
+  background-image: url(${back});
+  height: 38vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +74,7 @@ const FlexContainer = styled(Container)`
 const enterRight = keyframes`
   from {
     opacity: 0;
-    transform: translate(300px, 0px) scale(0.3) rotate(-180deg);
+    transform: translate(300px, 0px) scale(0.3) rotate(-90deg);
   }
   to {
     opacity: 1;
@@ -73,7 +84,7 @@ const enterRight = keyframes`
 const enterLeft = keyframes`
   from {
     opacity: 0;
-    transform: translate(-300px, 0px) scale(0.3) rotate(180deg);
+    transform: translate(-300px, 0px) scale(0.3) rotate(90deg);
   }
   to {
     opacity: 1;
