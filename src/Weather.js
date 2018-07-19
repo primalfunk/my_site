@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Dimmer, Divider, Grid, Header, Loader, Segment } from 'semantic-ui-react'
-import mainback from './mainback.png'
+import { Divider, Grid, Header, Segment } from 'semantic-ui-react'
 import axios from 'axios'
 
-class FirstPage extends React.Component {
+class Weather extends React.Component {
   state = { weather: [], visible: false }
 
   handleClick(woe) {
@@ -23,21 +22,19 @@ class FirstPage extends React.Component {
         <Segment style={{ "margin": "10px" }}>
         <Grid columns={2}>
           <Grid.Column>
-            <MyHeader>Check the weather in one of these cities:</MyHeader>
-            <ul>
-              <MyLi onClick={ () => this.handleClick(2459115) }>New York</MyLi>
-              <MyLi onClick={ () => this.handleClick(44418) }>London</MyLi>
-              <MyLi onClick={ () => this.handleClick(1062617) }>Singapore</MyLi>
-            </ul>
+            <Segment raised style={{ "height": "30vh" }}>
+              <MyHeader>Get a 5-day weather forecast for one of these cities:</MyHeader>
+              <ul>
+                <MyLi onClick={ () => this.handleClick(2459115) }>New York</MyLi>
+                <MyLi onClick={ () => this.handleClick(44418) }>London</MyLi>
+                <MyLi onClick={ () => this.handleClick(1062617) }>Singapore</MyLi>
+              </ul>
+            </Segment>
             </Grid.Column>
             <Grid.Column>
-              { weather ? 
-                <Header>{`Length of weather is ${weather.length}`}</Header> 
-                :
-                <Dimmer>
-                  <Loader>{`Loading...`}</Loader>
-                </Dimmer>  
-              }
+              <Segment raised style={{"height": "30vh"}}>
+                Weather data goes in here.
+              </Segment>
             </Grid.Column>
           </Grid>
         </Segment>
@@ -62,9 +59,8 @@ const MyLi = styled.li`
   }
 `
 const BigContainer = styled.div`
-  background-image: url(${mainback});
   heignt: 100vh;
 `
 
 
-export default FirstPage
+export default Weather

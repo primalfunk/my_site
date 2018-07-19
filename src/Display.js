@@ -1,14 +1,14 @@
 import React from 'react'
-import { Container, Divider, Button, Grid, Image } from 'semantic-ui-react'
+import { Button, Container, Divider, Grid, Header, Image } from 'semantic-ui-react'
 import styled, { keyframes } from 'styled-components'
 import right from './rightarrow.png'
 import left from './leftarrow.png'
 import back from './webback.png'
-import FirstPage from './FirstPage'
-import SecondPage from './SecondPage'
+import Weather from './Weather'
+import Music from './Music'
 
 class Display extends React.Component {
-  state = { shown: 1, dir: '', out: false }
+  state = { shown: 1, dir: 'right', out: false }
   
   handleSlide(i, dir) {
     let new_shown
@@ -53,10 +53,12 @@ class Display extends React.Component {
           </Grid.Row>
         </Grid>
         <Divider />
+        <Header as="h1" textAlign="center">Now showing: { shown === 1 ? "Weather" : shown === 2 ? "Music" : "Nothing" }</Header>
+        <Divider />
         { shown === 1 ?
-          <FirstPage /> :
+          <Weather /> :
           shown === 2 ?
-          <SecondPage /> :
+          <Music /> :
           null
         }
       </FlexContainer>
