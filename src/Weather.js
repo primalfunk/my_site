@@ -11,11 +11,12 @@ class Weather extends React.Component {
     axios.get(`https://www.metaweather.com/api/location/${woe}/`)
       .then( res => this.setState({ weather: res.data }))
       .catch( errors => console.log( errors.messages ))
+    debugger
   }
 
   render() {
     const { weather } = this.state
-    
+
     return(
       <BigContainer> 
         <Divider hidden />
@@ -33,7 +34,9 @@ class Weather extends React.Component {
             </Grid.Column>
             <Grid.Column>
               <Segment raised style={{"height": "30vh"}}>
-                Weather data goes in here.
+                
+
+              
               </Segment>
             </Grid.Column>
           </Grid>

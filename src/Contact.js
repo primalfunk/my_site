@@ -8,7 +8,7 @@ class Contact extends React.Component{
   render(){
 
     return(
-      <MySegment raised>
+      <MySegment raised style={{"backgroundColor": "black"}}>
         <Card>
           <Image src={jared} />
           <Card.Content>

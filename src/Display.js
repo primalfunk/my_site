@@ -3,7 +3,6 @@ import { Button, Container, Divider, Grid, Header, Image } from 'semantic-ui-rea
 import styled, { keyframes } from 'styled-components'
 import right from './rightarrow.png'
 import left from './leftarrow.png'
-import back from './webback.png'
 import Weather from './Weather'
 import Music from './Music'
 import Comics from './Comics'
@@ -32,7 +31,7 @@ class Display extends React.Component {
         <Grid columns={3} padded>
           <Grid.Row textAlign="center">
             <Grid.Column style={{ "display": "flex", "justifyContent": "center", "alignItems": "center" }}>
-                <Button onClick={() => this.handleSlide(shown, 'left')}>
+                <Button secondary onClick={() => this.handleSlide(shown, 'left')}>
                   <Image src={left} size="mini" />
                 </Button>
             </Grid.Column>
@@ -47,14 +46,14 @@ class Display extends React.Component {
               } 
             </Grid.Column>
             <Grid.Column style={{"display": "flex", "justifyContent": "center", "alignItems": "center"}}>
-                <Button onClick={() => this.handleSlide(shown, 'right')}>
+                <Button secondary onClick={() => this.handleSlide(shown, 'right')}>
                   <Image src={right} size="mini" />
                 </Button>
             </Grid.Column>
           </Grid.Row>
         </Grid>
         <Divider />
-        <Header style={{color: "gray"}}as="h1" textAlign="center">Now showing: { shown === 1 ? "Weather" : shown === 2 ? "Music" : "Comics" }</Header>
+        <Header style={{color: "gray"}}as="h1" textAlign="center">Now showing: { shown === 1 ? "Weather" : shown === 2 ? "Music" : "Under Construction" }</Header>
         <Divider />
         { shown === 1 ?
           <Weather /> :
@@ -68,7 +67,8 @@ class Display extends React.Component {
 }
 
 const FlexContainer = styled(Container)`
-  background-image: url(${back});
+  background-color: black;
+  width: 100vw;
   height: 38vh;
   display: flex;
   justify-content: center;
@@ -119,6 +119,10 @@ const AnimLeft = styled.div`
 `
 const AnimRight = styled.div`
   animation: ${ props => props.out ? leaveRight : enterRight } 1s;
+`
+
+const MyButton = styled(Button)`
+  background-color: black;
 `
 
 export default Display

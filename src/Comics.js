@@ -8,7 +8,7 @@ class Comics extends React.Component {
       <div style={{backgroundColor: "white"}}>
         <Segment raised style={{height: "30vh"}}>
           <Segment raised>
-          <Header>Use the ComicVine API to do something cool!</Header>
+          <Header>Nothing here yet...</Header>
           </Segment>
         </Segment>
       </div>

@@ -1,11 +1,10 @@
 import React from 'react'
-import { Card, Dimmer, Divider, Dropdown, Header, Loader, Segment } from 'semantic-ui-react'
+import { Card, Dimmer, Divider, Dropdown, Header, Segment } from 'semantic-ui-react'
 import ReactAudioPlayer from 'react-audio-player'
 import song1 from './sonata2-4.mp3'
 import song2 from './sonata3-1.mp3'
 import song3 from './sonata4-3.mp3'
 import styled from '../node_modules/styled-components'
-import back from './webback.png'
 
 class Music extends React.Component {
   state = { song: {} }
